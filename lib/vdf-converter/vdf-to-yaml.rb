@@ -20,7 +20,7 @@ class VdfToYAML
 		while scanner.eos? == false
 		
 			#search for a top level element
-			current_segment = scanner.scan(/\"[a-zA-Z0-9'_ .\-\/#\\,:!]*\"[ \n\t]*{/)
+			current_segment = scanner.scan(/\"[a-zA-Z0-9'_ .\-\/#\\,:!]*\"[ \r\n\t]*{/)
 			if current_segment != nil
 				current_segment = current_segment.tr("}{\n\r\t\"", "")
 				yaml_file.write(" "*@@indentation_count + current_segment + ":\n")
